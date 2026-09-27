@@ -1,0 +1,52 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
+# production
+/build
+/dist
+
+# misc
+.DS_Store
+*.pem
+Thumbs.db
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files — never commit secrets
+.env
+.env.local
+.env*.local
+.env.production
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+
+# eslint
+.eslintcache
+
+# local data store used when Supabase is not configured (dev only)
+/data/*.local.json
+/data/uploads
+
+# IDE
+.idea
+.vscode/*
+!.vscode/extensions.json
+
+# runtime JSON store (created by the admin panel when Supabase is not configured)
+/data/db.json

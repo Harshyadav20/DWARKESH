@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white font-sans text-ink-700 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-extrabold tracking-tight text-brand-950;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-brand-200 text-brand-950;
+  }
+
+  /* Visible, consistent keyboard focus everywhere */
+  :focus-visible {
+    @apply outline-none ring-4 ring-brand-500/35;
+    border-radius: 0.5rem;
+  }
+
+  /* Respect users who prefer less motion */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-brand-900/8 bg-white shadow-card transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-1 hover:border-brand-200 hover:shadow-card-hover;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-[0.9375rem] text-ink-900 placeholder:text-ink-400 transition-colors;
+    @apply focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-500/20;
+  }
+
+  .input-error {
+    @apply border-alert/60 focus:border-alert focus:ring-alert/20;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-semibold text-ink-800;
+  }
+
+  .error-text {
+    @apply mt-1.5 flex items-start gap-1 text-xs font-medium text-alert;
+  }
+
+  .link-underline {
+    @apply rounded font-semibold text-brand-700 underline-offset-4 transition-colors hover:text-brand-900 hover:underline;
+  }
+}
+
+@layer utilities {
+  /* Skip link — visible only when focused by keyboard */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-xl focus:bg-brand-800 focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-white;
+  }
+
+  .bg-grid {
+    background-image: linear-gradient(to right, rgba(29, 94, 109, 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(29, 94, 109, 0.055) 1px, transparent 1px);
+    background-size: 46px 46px;
+  }
+
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+}
